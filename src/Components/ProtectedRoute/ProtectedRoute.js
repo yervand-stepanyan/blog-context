@@ -18,7 +18,7 @@ export default function ProtectedRoute({ component: Component, ...rest }) {
     computedMatch
   } = rest;
 
-  if (path === '/blog-react/auth') {
+  if (path === '/blog-context-api/auth') {
     return isLoggedIn ? (
       <Route path={path}>
         <Logout
@@ -48,7 +48,7 @@ export default function ProtectedRoute({ component: Component, ...rest }) {
         />
       </Route>
     ) : (
-      <Redirect to={{ pathname: '/blog-react/auth' }} />
+      <Redirect to={{ pathname: '/blog-context-api/auth' }} />
     );
   }
 }

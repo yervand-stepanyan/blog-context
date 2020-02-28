@@ -40,7 +40,7 @@ function PostNonEditable(props) {
           </CardContent>
           <CardActions className={classes.CardActions}>
             <Link
-              to={`/blog-react/post/${id}`}
+              to={`/blog-context-api/post/${id}`}
               className={classes.learnMoreLink}
             >
               <Button size="medium" color="secondary">

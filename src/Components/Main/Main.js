@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
   Redirect
@@ -127,9 +127,9 @@ class Main extends React.Component {
             />
             <Switch>
               <Route exact path="/">
-                <Redirect to={{ pathname: '/blog-react/' }} />
+                <Redirect to={{ pathname: '/blog-context-api/' }} />
               </Route>
-              <Route exact path="/blog-react/">
+              <Route exact path="/blog-context-api/">
                 {posts.length > 0 ? (
                   <Posts />
                 ) : (
@@ -137,14 +137,14 @@ class Main extends React.Component {
                 )}
               </Route>
               <ProtectedRoute
-                path={'/blog-react/create'}
+                path={'/blog-context-api/create'}
                 isLoggedIn={isLoggedIn}
                 component={CreatePost}
                 currentUserId={currentUserId}
                 handlePostAdd={this.handlePostAdd}
               />
               <ProtectedRoute
-                path={'/blog-react/auth'}
+                path={'/blog-context-api/auth'}
                 isLoggedIn={isLoggedIn}
                 isCreatePostClicked={isCreatePostClicked}
                 handleLogIn={this.handleLogIn}
@@ -152,7 +152,7 @@ class Main extends React.Component {
                 handleCreatePostClick={this.handleCreatePostClick}
               />
               <ProtectedRoute
-                path={'/blog-react/post/:id'}
+                path={'/blog-context-api/post/:id'}
                 isLoggedIn={isLoggedIn}
                 component={PostDetails}
                 currentUserId={currentUserId}

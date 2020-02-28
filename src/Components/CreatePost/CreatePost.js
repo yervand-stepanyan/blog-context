@@ -83,7 +83,7 @@ class CreatePost extends React.Component {
         localStorage.setItem('posts', JSON.stringify(this.state.posts));
 
         this.props.handlePostAdd(this.state.posts);
-        this.props.history.push('/blog-react/');
+        this.props.history.push('/blog-context-api/');
       }
     );
   };

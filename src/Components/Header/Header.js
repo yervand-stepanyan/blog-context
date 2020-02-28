@@ -34,7 +34,7 @@ class Header extends React.Component {
     return (
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
-          <Link to="/blog-react/" className={classes.logo}>
+          <Link to="/blog-context-api/" className={classes.logo}>
             <IconButton
               edge="start"
               color="inherit"
@@ -45,7 +45,7 @@ class Header extends React.Component {
               <Typography variant="h4">{VARIABLES.home}</Typography>
             </IconButton>
           </Link>
-          <Link to="/blog-react/create" className={classes.createPostLink}>
+          <Link to="/blog-context-api/create" className={classes.createPostLink}>
             <Button
               className={classes.linkBtn}
               color="inherit"
@@ -55,7 +55,7 @@ class Header extends React.Component {
               {VARIABLES.createPost}
             </Button>
           </Link>
-          <Link to="/blog-react/auth" className={classes.authLink}>
+          <Link to="/blog-context-api/auth" className={classes.authLink}>
             {isLoggedIn ? (
               <Button className={classes.linkBtn} size="large">
                 {VARIABLES.logoutButtonLabel}
