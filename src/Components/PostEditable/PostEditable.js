@@ -116,7 +116,7 @@ class PostEditable extends React.Component {
                     className={classes.contentTextField}
                     placeholder="Write the post..."
                     id="standard-multiline-static"
-                    label="PostEditable"
+                    label="Post"
                     multiline
                     rows="5"
                     value={content}

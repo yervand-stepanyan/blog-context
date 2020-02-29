@@ -24,8 +24,8 @@ class CommentEditable extends React.Component {
     const user = users.find(user => user.id === comment.userId);
 
     this.state = {
-      comments,
       comment,
+      comments,
       commentText,
       currentUserId,
       users,
@@ -102,9 +102,9 @@ class CommentEditable extends React.Component {
                 {isEdit ? (
                   <TextField
                     className={classes.commentTextField}
-                    placeholder="Write the post..."
+                    placeholder="Write the comment..."
                     id="standard-multiline-static"
-                    label="PostEditable"
+                    label="Comment"
                     multiline
                     rows="5"
                     value={commentText}
