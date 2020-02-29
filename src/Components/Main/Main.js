@@ -11,10 +11,10 @@ import uuid from 'react-uuid';
 import { styles } from './styles';
 import Header from '../Header';
 import Home from '../Home';
-import CreatePost from '../CreatePost';
+import CreatePost from '../Post/CreatePost';
 import ProtectedRoute from '../ProtectedRoute';
-import Posts from '../PostsComponent';
-import PostDetails from '../PostDetails';
+import Posts from '../Post/PostsComponent';
+import PostDetails from '../Post/PostDetails';
 import ScrollToTop from '../../Helpers/ScrollToTop';
 
 import { withStyles } from '@material-ui/core';
