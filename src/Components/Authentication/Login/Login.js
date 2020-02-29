@@ -43,7 +43,7 @@ class Login extends React.Component {
     } = this.props;
 
     if (username && password) {
-      const newUser = { username, password };
+      const newUser = { username: username.trim(), password };
 
       this.setState({ username: '', password: '' }, () => {
         isLoggedIn(true, newUser);
