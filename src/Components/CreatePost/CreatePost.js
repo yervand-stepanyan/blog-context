@@ -76,6 +76,7 @@ class CreatePost extends React.Component {
           },
           ...state.posts
         ],
+        currentId: uuid(),
         title: '',
         content: ''
       }),
@@ -124,7 +125,7 @@ class CreatePost extends React.Component {
               </div>
               <div className={classes.btnDiv}>
                 <Fab color="primary" onClick={this.onPostAdd}>
-                  <CheckIcon />
+                  <CheckIcon/>
                 </Fab>
               </div>
             </CardContent>
