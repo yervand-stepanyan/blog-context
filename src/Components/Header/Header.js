@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import HomeIcon from './HomeIcon';
 import { styles } from './styles';
+import { ROUTES } from '../../Routes/Routes';
+import HomeIcon from './HomeIcon';
 
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -34,7 +35,7 @@ class Header extends React.Component {
     return (
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
-          <Link to="/blog-context-api/" className={classes.logo}>
+          <Link to={ROUTES.home} className={classes.logo}>
             <IconButton
               edge="start"
               color="inherit"
@@ -45,7 +46,7 @@ class Header extends React.Component {
               <Typography variant="h4">{VARIABLES.home}</Typography>
             </IconButton>
           </Link>
-          <Link to="/blog-context-api/create" className={classes.createPostLink}>
+          <Link to={ROUTES.create} className={classes.createPostLink}>
             <Button
               className={classes.linkBtn}
               color="inherit"
@@ -55,7 +56,7 @@ class Header extends React.Component {
               {VARIABLES.createPost}
             </Button>
           </Link>
-          <Link to="/blog-context-api/auth" className={classes.authLink}>
+          <Link to={ROUTES.auth} className={classes.authLink}>
             {isLoggedIn ? (
               <Button className={classes.linkBtn} size="large">
                 {VARIABLES.logoutButtonLabel}

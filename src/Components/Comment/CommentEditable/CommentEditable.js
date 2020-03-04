@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { styles } from './styles';
 import PropTypes from 'prop-types';
+
+import { styles } from './styles';
+import { Context } from '../../../context';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,8 +15,6 @@ import { withStyles } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
-
-import { Context } from '../../../context';
 
 function CommentEditable(props) {
   const context = useContext(Context);

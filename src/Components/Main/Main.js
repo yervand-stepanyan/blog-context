@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect
@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 
 import { styles } from './styles';
+import { ROUTES } from '../../Routes/Routes';
 import Header from '../Header';
 import Home from '../Home';
 import CreatePost from '../Post/CreatePost';
@@ -57,7 +58,7 @@ class Main extends React.Component {
               ? { ...user, isOnline: true }
               : { ...user, isOnline: false }
           ),
-          isLoggedIn: isLoggedIn,
+          isLoggedIn,
           currentUserId: loggedUser.id
         }),
         () => localStorage.setItem('users', JSON.stringify(this.state.users))
@@ -68,14 +69,14 @@ class Main extends React.Component {
           users: [
             {
               id: state.currentId,
-              username: username,
-              password: password,
+              username,
+              password,
               isOnline: true
             },
             ...state.users
           ],
           currentId: uuid(),
-          isLoggedIn: isLoggedIn,
+          isLoggedIn,
           currentUserId: state.currentId
         }),
         () => localStorage.setItem('users', JSON.stringify(this.state.users))
@@ -94,7 +95,7 @@ class Main extends React.Component {
     this.setState(
       {
         users: newUsers,
-        isLoggedIn: isLoggedIn
+        isLoggedIn
       },
       () => localStorage.setItem('users', JSON.stringify(this.state.users))
     );
@@ -105,7 +106,7 @@ class Main extends React.Component {
   };
 
   handlePostAdd = posts => {
-    this.setState({ posts: posts });
+    this.setState({ posts });
   };
 
   render() {
@@ -113,7 +114,8 @@ class Main extends React.Component {
       isLoggedIn,
       isCreatePostClicked,
       currentUserId,
-      posts
+      posts,
+      users
     } = this.state;
     const { classes } = this.props;
 
@@ -127,9 +129,9 @@ class Main extends React.Component {
             />
             <Switch>
               <Route exact path="/">
-                <Redirect to={{ pathname: '/blog-context-api/' }} />
+                <Redirect to={{ pathname: ROUTES.home }} />
               </Route>
-              <Route exact path="/blog-context-api/">
+              <Route exact path={ROUTES.home}>
                 {posts.length > 0 ? (
                   <Posts />
                 ) : (
@@ -137,14 +139,15 @@ class Main extends React.Component {
                 )}
               </Route>
               <ProtectedRoute
-                path={'/blog-context-api/create'}
+                path={ROUTES.create}
                 isLoggedIn={isLoggedIn}
                 component={CreatePost}
                 currentUserId={currentUserId}
                 handlePostAdd={this.handlePostAdd}
               />
               <ProtectedRoute
-                path={'/blog-context-api/auth'}
+                path={ROUTES.auth}
+                users={users}
                 isLoggedIn={isLoggedIn}
                 isCreatePostClicked={isCreatePostClicked}
                 handleLogIn={this.handleLogIn}
@@ -152,7 +155,7 @@ class Main extends React.Component {
                 handleCreatePostClick={this.handleCreatePostClick}
               />
               <ProtectedRoute
-                path={'/blog-context-api/post/:id'}
+                path={`${ROUTES.postById}/:id`}
                 isLoggedIn={isLoggedIn}
                 component={PostDetails}
                 currentUserId={currentUserId}

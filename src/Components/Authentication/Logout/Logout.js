@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { styles } from './styles';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -15,11 +16,11 @@ const VARIABLES = {
 class Logout extends React.Component {
   handleLogOut = () => {
     const {
-      isLoggedIn,
+      handleLogOut,
       isCreatePostClicked,
       handleCreatePostClick
     } = this.props;
-    isLoggedIn(false);
+    handleLogOut(false);
 
     if (isCreatePostClicked) {
       handleCreatePostClick(false);

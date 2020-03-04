@@ -1,11 +1,13 @@
 import React from 'react';
-import { styles } from './styles';
 import { Link, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { styles } from './styles';
+import { ROUTES } from '../../Routes/Routes';
+import Login from '../Authentication/Login/Login';
+
 import { withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import Login from '../Authentication/Login/Login';
 
 const VARIABLES = {
   header: 'There is no post on web-site.',
@@ -28,16 +30,16 @@ function Home({ classes, isLoggedIn }) {
           {isLoggedIn ? (
             <Typography variant="h4" className={classes.text}>
               {VARIABLES.textIsLoggedIn}{' '}
-              <Link to="/blog-context-api/create">{VARIABLES.textAsLinkToPosts}</Link>
+              <Link to={ROUTES.create}>{VARIABLES.textAsLinkToPosts}</Link>
             </Typography>
           ) : (
             <Typography variant="h4" className={classes.text}>
-              <Link to="/blog-context-api/auth">{VARIABLES.textAsLinkToLogIn}</Link>
+              <Link to={ROUTES.auth}>{VARIABLES.textAsLinkToLogIn}</Link>
               {VARIABLES.textIsNotLoggedIn}
             </Typography>
           )}
         </div>
-        <Route path="/blog-context-api/auth">
+        <Route path={ROUTES.auth}>
           <Login />
         </Route>
       </div>

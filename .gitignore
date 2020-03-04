@@ -24,3 +24,6 @@ yarn-error.log*
 
 # WebStorm's .idea
 .idea
+
+# .env
+.env

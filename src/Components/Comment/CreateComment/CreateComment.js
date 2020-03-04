@@ -1,7 +1,8 @@
 import React from 'react';
-import { styles } from './styles';
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
+
+import { styles } from './styles';
 
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';

@@ -1,6 +1,7 @@
 import React from 'react';
-import { styles } from './styles';
 import PropTypes from 'prop-types';
+
+import { styles } from './styles';
 import Post from '../PostNonEditable';
 
 import { withStyles } from '@material-ui/core';

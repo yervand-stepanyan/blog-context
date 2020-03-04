@@ -1,7 +1,9 @@
 import React from 'react';
-import { styles } from './styles';
-import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import { styles } from './styles';
+import { ROUTES } from '../../../Routes/Routes';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -49,12 +51,14 @@ class PostEditable extends React.Component {
     this.setState(
       state => ({
         posts: state.posts.filter(post => post.id !== state.post.id),
-        comments: state.comments.filter(comment => comment.postId !== state.post.id)
+        comments: state.comments.filter(
+          comment => comment.postId !== state.post.id
+        )
       }),
       () => {
         localStorage.setItem('posts', JSON.stringify(this.state.posts));
         localStorage.setItem('comments', JSON.stringify(this.state.comments));
-        this.props.history.push('/blog-react/');
+        this.props.history.push(ROUTES.home);
       }
     );
   };
@@ -100,7 +104,10 @@ class PostEditable extends React.Component {
                   </Typography>
                 </div>
                 <div className={classes.editIcon}>
-                  <IconButton onClick={() => this.handleIsEdit()} disabled={!correctUser}>
+                  <IconButton
+                    onClick={() => this.handleIsEdit()}
+                    disabled={!correctUser}
+                  >
                     <CreateIcon />
                   </IconButton>
                 </div>
@@ -125,12 +132,20 @@ class PostEditable extends React.Component {
             <CardActions className={classes.CardActions}>
               <div className={classes.buttonsSection}>
                 <div className={classes.btnDiv}>
-                  <Fab onClick={this.onRemove} disabled={!correctUser} color="secondary">
+                  <Fab
+                    onClick={this.onRemove}
+                    disabled={!correctUser}
+                    color="secondary"
+                  >
                     <DeleteIcon />
                   </Fab>
                 </div>
                 <div className={classes.btnDiv}>
-                  <Fab color="primary" disabled={!isEdit} onClick={this.onSubmit}>
+                  <Fab
+                    color="primary"
+                    disabled={!isEdit}
+                    onClick={this.onSubmit}
+                  >
                     <CheckIcon />
                   </Fab>
                 </div>

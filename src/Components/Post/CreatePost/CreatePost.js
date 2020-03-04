@@ -1,8 +1,10 @@
 import React from 'react';
-import { styles } from './styles';
-import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
+
+import { styles } from './styles';
+import { ROUTES } from '../../../Routes/Routes';
 
 import { withStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
@@ -84,7 +86,7 @@ class CreatePost extends React.Component {
         localStorage.setItem('posts', JSON.stringify(this.state.posts));
 
         this.props.handlePostAdd(this.state.posts);
-        this.props.history.push('/blog-context-api/');
+        this.props.history.push(ROUTES.home);
       }
     );
   };
@@ -125,7 +127,7 @@ class CreatePost extends React.Component {
               </div>
               <div className={classes.btnDiv}>
                 <Fab color="primary" onClick={this.onPostAdd}>
-                  <CheckIcon/>
+                  <CheckIcon />
                 </Fab>
               </div>
             </CardContent>

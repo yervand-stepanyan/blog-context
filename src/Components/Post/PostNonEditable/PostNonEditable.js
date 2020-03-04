@@ -1,7 +1,9 @@
 import React from 'react';
-import { styles } from './styles';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import { styles } from './styles';
+import { ROUTES } from '../../../Routes/Routes';
 
 import { withStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
@@ -40,7 +42,7 @@ function PostNonEditable(props) {
           </CardContent>
           <CardActions className={classes.CardActions}>
             <Link
-              to={`/blog-context-api/post/${id}`}
+              to={`${ROUTES.postById}/${id}`}
               className={classes.learnMoreLink}
             >
               <Button size="medium" color="secondary">

@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { styles } from './styles';
 import Post from '../PostEditable';
 import CreateComment from '../../Comment/CreateComment';
 import Comments from '../../Comment/Comments';
-
-import {Context} from '../../../context'
+import { Context } from '../../../context';
 
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core';
-
-// export const CommentContext = React.createContext();
 
 const VARIABLES = {
   titlePost: 'Post',
@@ -89,13 +87,14 @@ class PostDetails extends React.Component {
           />
         </div>
         <div className={classes.commentsSection}>
-          <Context.Provider value={{ comments, currentUserId, onCommentRemove: this.onCommentRemove }}>
-            <Comments
-              comments={comments}
-              // currentUserId={currentUserId}
-              // onCommentRemove={this.onCommentRemove}
-              postId={postId}
-            />
+          <Context.Provider
+            value={{
+              comments,
+              currentUserId,
+              onCommentRemove: this.onCommentRemove
+            }}
+          >
+            <Comments comments={comments} postId={postId} />
           </Context.Provider>
         </div>
       </div>

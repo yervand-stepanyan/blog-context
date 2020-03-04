@@ -1,9 +1,10 @@
 import React from 'react';
-import { styles } from './styles';
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core';
+import { styles } from './styles';
 import Comment from '../CommentEditable';
+
+import { withStyles } from '@material-ui/core';
 
 function Comments({ classes, comments, postId }) {
   const filteredComments = comments.filter(
