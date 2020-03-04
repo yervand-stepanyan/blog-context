@@ -5,13 +5,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 import Comment from '../CommentEditable';
 
-function Comments({
-  classes,
-  comments,
-  currentUserId,
-  onCommentRemove,
-  postId
-}) {
+function Comments({ classes, comments, postId }) {
   const filteredComments = comments.filter(
     comment => comment.postId === postId
   );
@@ -21,13 +15,7 @@ function Comments({
       <div className={classes.postSection}>
         <ul className={classes.ul}>
           {filteredComments.map(comment => (
-            <Comment
-              key={comment.id}
-              comment={comment}
-              // comments={comments}
-              // currentUserId={currentUserId}
-              // onCommentRemove={onCommentRemove}
-            />
+            <Comment key={comment.id} comment={comment} />
           ))}
         </ul>
       </div>
