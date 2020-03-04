@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { styles } from './styles';
 import PropTypes from 'prop-types';
 
@@ -19,13 +19,27 @@ import { Context } from '../../../context';
 function CommentEditable(props) {
   const context = useContext(Context);
 
-  const [comment] = useState(props.comment);
+  const [comment, setComment] = useState(props.comment);
   const [comments, setComments] = useState(context.comments);
   const [commentText, setCommentText] = useState(comment.comment);
   const [currentUserId] = useState(context.currentUserId);
   const [users] = useState(JSON.parse(localStorage.getItem('users')));
   const [user] = useState(users.find(user => user.id === comment.userId));
   const [isEdit, setIsEdit] = useState(false);
+
+  useEffect(() => {
+    setComments(
+      comments.map(singleComment =>
+        singleComment.id === comment.id
+          ? { ...comment, comment: commentText }
+          : singleComment
+      )
+    );
+  }, [comment]);
+
+  useEffect(() => {
+    localStorage.setItem('comments', JSON.stringify(comments));
+  }, [comments]);
 
   const onCommentChange = event => {
     setCommentText(event.target.value);
@@ -40,17 +54,9 @@ function CommentEditable(props) {
   };
 
   const onSubmit = () => {
-    const updatedComments = comments.map(singleComment =>
-      singleComment.id === comment.id
-        ? { ...comment, comment: commentText }
-        : singleComment
-    );
-
-    setComments(updatedComments);
+    setComment(prevState => ({ ...prevState, comment: commentText }));
 
     setIsEdit(!isEdit);
-
-    localStorage.setItem('comments', JSON.stringify(updatedComments));
   };
 
   const { classes } = props;
