@@ -24,9 +24,9 @@ function Comments({
             <Comment
               key={comment.id}
               comment={comment}
-              comments={comments}
-              currentUserId={currentUserId}
-              onCommentRemove={onCommentRemove}
+              // comments={comments}
+              // currentUserId={currentUserId}
+              // onCommentRemove={onCommentRemove}
             />
           ))}
         </ul>

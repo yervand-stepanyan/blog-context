@@ -49,9 +49,7 @@ class PostEditable extends React.Component {
     this.setState(
       state => ({
         posts: state.posts.filter(post => post.id !== state.post.id),
-        comments: state.comments.filter(
-          comment => comment.postId !== state.post.id
-        )
+        comments: state.comments.filter(comment => comment.postId !== state.post.id)
       }),
       () => {
         localStorage.setItem('posts', JSON.stringify(this.state.posts));
@@ -102,10 +100,7 @@ class PostEditable extends React.Component {
                   </Typography>
                 </div>
                 <div className={classes.editIcon}>
-                  <IconButton
-                    onClick={() => this.handleIsEdit()}
-                    disabled={!correctUser}
-                  >
+                  <IconButton onClick={() => this.handleIsEdit()} disabled={!correctUser}>
                     <CreateIcon />
                   </IconButton>
                 </div>
@@ -130,20 +125,12 @@ class PostEditable extends React.Component {
             <CardActions className={classes.CardActions}>
               <div className={classes.buttonsSection}>
                 <div className={classes.btnDiv}>
-                  <Fab
-                    onClick={this.onRemove}
-                    disabled={!correctUser}
-                    color="secondary"
-                  >
+                  <Fab onClick={this.onRemove} disabled={!correctUser} color="secondary">
                     <DeleteIcon />
                   </Fab>
                 </div>
                 <div className={classes.btnDiv}>
-                  <Fab
-                    color="primary"
-                    disabled={!isEdit}
-                    onClick={this.onSubmit}
-                  >
+                  <Fab color="primary" disabled={!isEdit} onClick={this.onSubmit}>
                     <CheckIcon />
                   </Fab>
                 </div>
