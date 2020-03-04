@@ -5,7 +5,7 @@ import { styles } from './styles';
 import Post from '../PostEditable';
 import CreateComment from '../../Comment/CreateComment';
 import Comments from '../../Comment/Comments';
-import { Context } from '../../../context';
+import { Context } from '../../../Context/context';
 
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core';

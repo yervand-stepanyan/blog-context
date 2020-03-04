@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { styles } from './styles';
-import { Context } from '../../../context';
+import { Context } from '../../../Context/context';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
