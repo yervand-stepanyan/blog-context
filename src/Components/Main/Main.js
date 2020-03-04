@@ -15,7 +15,7 @@ import CreatePost from '../Post/CreatePost';
 import ProtectedRoute from '../ProtectedRoute';
 import Posts from '../Post/PostsComponent';
 import PostDetails from '../Post/PostDetails';
-import ScrollToTop from '../../Helpers/ScrollToTop';
+import ScrollToTop from '../ScrollToTop';
 
 import { withStyles } from '@material-ui/core';
 
