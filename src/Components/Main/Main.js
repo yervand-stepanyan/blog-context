@@ -17,6 +17,7 @@ import ProtectedRoute from '../ProtectedRoute';
 import Posts from '../Post/PostsComponent';
 import PostDetails from '../Post/PostDetails';
 import ScrollToTop from '../ScrollToTop';
+import { saveState, loadState } from '../../helpers/localStorage';
 
 import { withStyles } from '@material-ui/core';
 
@@ -24,9 +25,9 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const users = loadState('users') || [];
     const currentId = uuid();
-    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+    const posts = loadState('posts') || [];
     const isLoggedIn = users.some(user => user.isOnline);
     const currentUserId = isLoggedIn
       ? users.find(user => user.isOnline).id
@@ -61,7 +62,7 @@ class Main extends React.Component {
           isLoggedIn,
           currentUserId: loggedUser.id
         }),
-        () => localStorage.setItem('users', JSON.stringify(this.state.users))
+        () => saveState('users', this.state.users)
       );
     } else {
       this.setState(
@@ -79,7 +80,7 @@ class Main extends React.Component {
           isLoggedIn,
           currentUserId: state.currentId
         }),
-        () => localStorage.setItem('users', JSON.stringify(this.state.users))
+        () => saveState('users', this.state.users)
       );
     }
   };
@@ -97,7 +98,7 @@ class Main extends React.Component {
         users: newUsers,
         isLoggedIn
       },
-      () => localStorage.setItem('users', JSON.stringify(this.state.users))
+      () => saveState('users', this.state.users)
     );
   };
 

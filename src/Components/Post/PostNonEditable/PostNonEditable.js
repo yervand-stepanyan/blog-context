@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { styles } from './styles';
 import { ROUTES } from '../../../Routes/Routes';
+import { loadState } from '../../../helpers/localStorage';
 
 import { withStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
@@ -16,7 +17,7 @@ import Avatar from '@material-ui/core/Avatar';
 function PostNonEditable(props) {
   const { classes } = props;
   const { title, content, date, userId, id } = props.post;
-  const users = JSON.parse(localStorage.getItem('users'));
+  const users = loadState('users');
   const user = users.find(user => user.id === userId);
   const avatar = user.username[0].toUpperCase();
 

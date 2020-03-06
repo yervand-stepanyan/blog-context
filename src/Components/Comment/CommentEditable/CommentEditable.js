@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { styles } from './styles';
 import { Context } from '../../../Context/context';
+import { saveState, loadState } from '../../../helpers/localStorage';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -23,7 +24,7 @@ function CommentEditable(props) {
   const [comments, setComments] = useState(context.comments);
   const [commentText, setCommentText] = useState(comment.comment);
   const [currentUserId] = useState(context.currentUserId);
-  const [users] = useState(JSON.parse(localStorage.getItem('users')));
+  const [users] = useState(loadState('users'));
   const [user] = useState(users.find(user => user.id === comment.userId));
   const [isEdit, setIsEdit] = useState(false);
 
@@ -38,7 +39,7 @@ function CommentEditable(props) {
   }, [comment]);
 
   useEffect(() => {
-    localStorage.setItem('comments', JSON.stringify(comments));
+    saveState('comments', comments);
   }, [comments]);
 
   const onCommentChange = event => {

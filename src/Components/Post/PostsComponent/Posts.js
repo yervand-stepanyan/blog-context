@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { styles } from './styles';
 import Post from '../PostNonEditable';
+import { loadState } from '../../../helpers/localStorage';
 
 import { withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
@@ -15,7 +16,7 @@ class Posts extends React.Component {
   constructor(props) {
     super(props);
 
-    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+    const posts = loadState('posts') || [];
 
     this.state = {
       posts

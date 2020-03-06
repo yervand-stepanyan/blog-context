@@ -6,6 +6,7 @@ import Post from '../PostEditable';
 import CreateComment from '../../Comment/CreateComment';
 import Comments from '../../Comment/Comments';
 import { Context } from '../../../Context/context';
+import { saveState, loadState } from '../../../helpers/localStorage';
 
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core';
@@ -19,9 +20,9 @@ class PostDetails extends React.Component {
   constructor(props) {
     super(props);
 
-    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+    const posts = loadState('posts') || [];
     const post = posts.find(post => post.id === this.props.postId);
-    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+    const comments = loadState('comments') || [];
 
     this.state = {
       posts,
@@ -36,7 +37,7 @@ class PostDetails extends React.Component {
         comments: [comment, ...state.comments]
       }),
       () => {
-        localStorage.setItem('comments', JSON.stringify(this.state.comments));
+        saveState('comments', this.state.comments);
       }
     );
   };
@@ -48,8 +49,7 @@ class PostDetails extends React.Component {
           comment => comment.id !== commentToRemove.id
         )
       }),
-      () =>
-        localStorage.setItem('comments', JSON.stringify(this.state.comments))
+      () => saveState('comments', this.state.comments)
     );
   };
 

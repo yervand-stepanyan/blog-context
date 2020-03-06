@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { styles } from './styles';
 import { ROUTES } from '../../../Routes/Routes';
+import { saveState, loadState } from '../../../helpers/localStorage';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -24,7 +25,7 @@ class PostEditable extends React.Component {
 
     const { posts, post, comments, currentUserId } = this.props;
     const content = post.content;
-    const users = JSON.parse(localStorage.getItem('users'));
+    const users = loadState('users');
     const user = users.find(user => user.id === post.userId);
 
     this.state = {
@@ -56,8 +57,10 @@ class PostEditable extends React.Component {
         )
       }),
       () => {
-        localStorage.setItem('posts', JSON.stringify(this.state.posts));
-        localStorage.setItem('comments', JSON.stringify(this.state.comments));
+        saveState('posts', this.state.posts);
+
+        saveState('comments', this.state.comments);
+
         this.props.history.push(ROUTES.home);
       }
     );
@@ -76,7 +79,7 @@ class PostEditable extends React.Component {
             ),
             isEdit: !state.isEdit
           }),
-          () => localStorage.setItem('posts', JSON.stringify(this.state.posts))
+          () => saveState('posts', this.state.posts)
         )
     );
   };

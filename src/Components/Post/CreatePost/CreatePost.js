@@ -5,6 +5,7 @@ import uuid from 'react-uuid';
 
 import { styles } from './styles';
 import { ROUTES } from '../../../Routes/Routes';
+import { saveState, loadState } from '../../../helpers/localStorage';
 
 import { withStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
@@ -38,7 +39,7 @@ class CreatePost extends React.Component {
     super(props);
 
     const currentId = uuid();
-    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+    const posts = loadState('posts') || [];
 
     this.state = {
       title: '',
@@ -83,7 +84,7 @@ class CreatePost extends React.Component {
         content: ''
       }),
       () => {
-        localStorage.setItem('posts', JSON.stringify(this.state.posts));
+        saveState('posts', this.state.posts);
 
         this.props.handlePostAdd(this.state.posts);
         this.props.history.push(ROUTES.home);
