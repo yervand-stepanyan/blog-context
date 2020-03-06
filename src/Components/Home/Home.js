@@ -2,11 +2,9 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { styles } from './styles';
 import { ROUTES } from '../../Routes/Routes';
 import Login from '../Authentication/Login/Login';
 
-import { withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
 const VARIABLES = {
@@ -51,4 +49,4 @@ Home.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Home);
+export default Home;

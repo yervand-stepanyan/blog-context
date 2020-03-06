@@ -1,13 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 
-import { styles } from './styles';
 import { ROUTES } from '../../../Routes/Routes';
 import { saveState, loadState } from '../../../helpers/localStorage';
 
-import { withStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -143,4 +140,4 @@ CreatePost.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRouter(withStyles(styles)(CreatePost));
+export default CreatePost;

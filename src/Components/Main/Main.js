@@ -8,7 +8,6 @@ import {
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 
-import { styles } from './styles';
 import { ROUTES } from '../../Routes/Routes';
 import Header from '../Header';
 import Home from '../Home';
@@ -18,8 +17,6 @@ import Posts from '../Post/PostsComponent';
 import PostDetails from '../Post/PostDetails';
 import ScrollToTop from '../ScrollToTop';
 import { saveState, loadState } from '../../helpers/localStorage';
-
-import { withStyles } from '@material-ui/core';
 
 class Main extends React.Component {
   constructor(props) {
@@ -174,4 +171,4 @@ Main.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Main);
+export default Main;

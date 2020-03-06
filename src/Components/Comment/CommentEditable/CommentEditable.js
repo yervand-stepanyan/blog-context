@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { styles } from './styles';
 import { Context } from '../../../Context/context';
 import { saveState, loadState } from '../../../helpers/localStorage';
 
@@ -12,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import CreateIcon from '@material-ui/icons/Create';
-import { withStyles } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
@@ -137,4 +135,4 @@ CommentEditable.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(CommentEditable);
+export default CommentEditable;

@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { styles } from './styles';
 import Post from '../PostNonEditable';
 import { loadState } from '../../../helpers/localStorage';
 
-import { withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
 const VARIABLES = {
@@ -50,4 +48,4 @@ Posts.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Posts);
+export default Posts;

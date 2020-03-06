@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { styles } from './styles';
 import Post from '../PostEditable';
 import CreateComment from '../../Comment/CreateComment';
 import Comments from '../../Comment/Comments';
@@ -9,7 +8,6 @@ import { Context } from '../../../Context/context';
 import { saveState, loadState } from '../../../helpers/localStorage';
 
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core';
 
 const VARIABLES = {
   titlePost: 'Post',
@@ -106,4 +104,4 @@ PostDetails.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(PostDetails);
+export default PostDetails;

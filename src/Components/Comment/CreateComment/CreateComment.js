@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 
-import { styles } from './styles';
-
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
 import CheckIcon from '@material-ui/icons/Check';
-import { withStyles } from '@material-ui/core';
 
 const monthNames = [
   'JAN',
@@ -103,4 +100,4 @@ CreateComment.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(CreateComment);
+export default CreateComment;

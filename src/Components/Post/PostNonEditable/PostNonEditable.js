@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { styles } from './styles';
 import { ROUTES } from '../../../Routes/Routes';
 import { loadState } from '../../../helpers/localStorage';
 
-import { withStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -61,4 +59,4 @@ PostNonEditable.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(PostNonEditable);
+export default PostNonEditable;

@@ -1,8 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { styles } from './styles';
 import { ROUTES } from '../../../Routes/Routes';
 import { saveState, loadState } from '../../../helpers/localStorage';
 
@@ -13,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import CreateIcon from '@material-ui/icons/Create';
-import { withStyles } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Fab from '@material-ui/core/Fab';
@@ -165,4 +162,4 @@ PostEditable.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRouter(withStyles(styles)(PostEditable));
+export default PostEditable;
