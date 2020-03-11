@@ -5,7 +5,7 @@ import { ROUTES } from '../../Routes/Routes';
 import Login from '../Authentication/Login';
 import Logout from '../Authentication/Logout';
 
-export default function ProtectedRoute({ component: Component, ...rest }) {
+function ProtectedRoute({ component: Component, ...rest }) {
   const {
     isLoggedIn,
     path,
@@ -55,3 +55,5 @@ export default function ProtectedRoute({ component: Component, ...rest }) {
     );
   }
 }
+
+export default ProtectedRoute;
